@@ -1,7 +1,6 @@
 
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
-
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `mydb`.`adress` ;
 DROP TABLE IF EXISTS `mydb`.`data` ;
@@ -110,6 +109,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`meteostation` (
   CONSTRAINT meteostation_pk PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `ІНДЕКСИ`
+-- -----------------------------------------------------
+CREATE UNIQUE INDEX developer_tel_num_index ON developer(`telephone_num`);   -- Номер телефону повинен бути унікальним    
+CREATE UNIQUE INDEX  location_city_index ON location(`city`);  -- Місто також повинно бути унікальним
+CREATE UNIQUE INDEX adress_street_id ON adress(`street`); --  унікальна вулиця
+-- -----------------------------------------------------
+-- Table `ІНДЕКСИ`
+-- -----------------------------------------------------
+
 ALTER TABLE meteostation ADD CONSTRAINT meteostation_data_id FOREIGN KEY meteostation_data_id(data_id)
     REFERENCES data(id);
     
@@ -172,15 +181,15 @@ INSERT INTO data (`id`,`temperature`,`humidity`, `wind_speed`, `atmospheric_pres
 ("10", "10", "10", "10", "10","10","10");    
        
 INSERT INTO developer (`id`,`name`,`surname`,`telephone_num`) VALUES
-("1", "Ivan", "Voloshanskyi", "0980000000"),     
-("2", "Taras", "Tovarnitskyi", "0980000000"),     
-("3", "Taras", "Florko", "0980000000"),     
-("4", "Maryan", "Petlovaniy", "0980000000"),     
-("5", "Taras", "Shewchenko", "0980000000"),     
-("6", "Oleh", "Vynnyk", "0980000000"),     
-("7", "Stapan", "Giga", "0980000000"),     
-("8", "Olga", "Polyakova", "0980000000"),     
-("9", "Biba", "Boba", "0980000000"),     
+("1", "Ivan", "Voloshanskyi", "0980000001"),     
+("2", "Taras", "Tovarnitskyi", "0980000002"),     
+("3", "Taras", "Florko", "0980000003"),     
+("4", "Maryan", "Petlovaniy", "0980000004"),     
+("5", "Taras", "Shewchenko", "0980000005"),     
+("6", "Oleh", "Vynnyk", "0980000006"),     
+("7", "Stapan", "Giga", "0980000007"),     
+("8", "Olga", "Polyakova", "0980000008"),     
+("9", "Biba", "Boba", "0980000009"),     
 ("10", "Derevo", "Dyb", "0980000000");       
 
 
